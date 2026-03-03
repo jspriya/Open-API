@@ -1,5 +1,7 @@
-const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m&hourly=relative_humidity_2m`;
+const url1 = `https://api.open-meteo.com/v1/forecast?latitude=37.55&longitude=-121.99&hourly=temperature_2m`;
+const url2 = `https://api.open-meteo.com/v1/forecast?latitude=37.55&longitude=-121.99&hourly=relative_humidity_2m`;
 
+/*
 fetch(apiUrl)
     .then(response => {
         if (!response.ok) {
@@ -13,3 +15,28 @@ fetch(apiUrl)
     .catch(error => {
         console.error("Error fetching forecast:", error);
     })
+*/
+const tableBody = document.getElementById("tableBody");
+
+Promise.all([
+    fetch(url1).then(res => res.json()),
+    fetch(url2).then(res => res.json())
+])
+.then(([data1, data2]) => {
+        const times = data1.hourly.time;
+        const temps = data1.hourly.temperature_2m;
+        const humidity = data2.hourly.relative_humidity_2m;
+
+        let rows = "";
+        for (let i = 0; i < times.length; i++) {
+            rows += `
+                <tr>
+                    <td>${times[i]}</td>
+                    <td>${temps[i]}</td>
+                    <td>${humidity[i]}</td>
+                </tr>
+            `;
+        }
+        tableBody.innerHTML = rows;
+    })
+    .catch(error => console.error(error));

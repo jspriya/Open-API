@@ -1,0 +1,26 @@
+table {
+    border-collapse: collapse;
+    width: 60%;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover effect (nice UI touch ✨) */
+tr:hover {
+    background-color: #ddd;
+}
