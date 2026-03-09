@@ -8,16 +8,20 @@
         <meta name="description" content="Fetch weather data">
 </head>
 <body>
-    <table>
-        <thead>
-            <tr>
-                <th>Time</th>
-                <th>Temperature °C</th>
-                <th>Humidity</th>
-            </tr>
-        </thead>
-        <tbody id="tableBody"></tbody>
-    </table>
-    <script src="index.js"></script>
+        <div class="main-container">
+        <h1> Weather Data</h1>
+        <p> Temperature and Humidity Forecast for Fremont, CA</p> <br><br>
+        
+        <div class="button-container">
+
+                <button onclick="window.location.href='file:///Users/shanmugapriya/Documents/CodeTheDream/Open-API/temperature.html'">Temperature</button> 
+                <button onclick="window.location.href='file:///Users/shanmugapriya/Documents/CodeTheDream/Open-API/humidity.html'">Humidity</button>
+        <!-- <br><br> -->
+        </div>
+        </div>
+<!-- <button onclick="getWeatherData('Temperature')">Temperature</button> 
+<button onclick="getWeatherData('Humidity')">Humidity</button> !-->
+
+<script src="index.js"></script>
 </body>
 </html>
